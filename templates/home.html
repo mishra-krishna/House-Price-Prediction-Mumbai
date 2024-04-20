@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+        crossorigin="anonymous">
+
+    <title>House Price Prediction</title>
+
+    <style>
+        body {
+            background-image: url('houseproj.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            color: white;
+        }
+
+        h1 {
+            text-align: center;
+            color: white;
+        }
+
+        .container {
+            background-color: rgba(0, 0, 0, 0.8);
+            padding: 10px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+            max-width: 70%; /* Adjusted max-width */
+        }
+
+        form {
+            margin-top: 15px;
+            color: white;
+        }
+
+        label {
+            color: white;
+        }
+
+        button {
+            background-color: #007bff;
+            color: white;
+        }
+
+        #outputColumn {
+            margin-top: 15px;
+        }
+
+        #outputLabel {
+            text-align: center;
+        }
+
+        .alert {
+            margin-bottom: 15px; /* Add margin below the alert */
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+
+        <h1>Mumbai Real Estate Price Prediction</h1>
+
+        <form action="/" method="POST">
+            <div class="form-group">
+                <label for="title">Enter Area of Property</label>
+                <input type="text" class="form-control" id="area" name="area" aria-describedby="emailHelp"
+                    placeholder="In square feet">
+            </div>
+            <div class="form-group">
+                <label for="desc">Enter Number of Bedrooms</label>
+                <input type="text" class="form-control" id="bedroom" name="bedroom" placeholder="Whole Number Value">
+            </div>
+            <div class="form-group">
+                <label for="title">Enter Number of Bathrooms</label>
+                <input type="text" class="form-control" id="bathroom" name="bathroom" aria-describedby="emailHelp"
+                    placeholder="Whole Number Value">
+            </div>
+
+            <div class="form-group">
+                <label for="furnish">Select Furnished Status of the Property</label>
+                <select class="form-control" id="furnish" name="furnish">
+                    <option value="1">Unfurnished</option>
+                    <option value="2">Semi-Furnished</option>
+                    <option value="3">Furnished</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="algo">Pick Algorithm to be Used for Prediction</label>
+                <select class="form-control" id="algo" name="algo">
+                    <option value="0">Linear Regression</option>
+                    <option value="1">Decision Tree Regressor</option>
+                    <option value="2">Random Forest Regressor</option>
+                    <option value="3">Support Vector Regressor</option>
+                </select>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+
+        <!-- Output Column -->
+        <div id="outputColumn" class="form-group">
+            <label id="outputLabel" for="output">Predicted Price</label>
+            <input type="text" class="form-control" id="output" name="output" value="{{ pred[0] }}" readonly>
+        </div>
+
+        <div id="outputColumn" class="form-group">
+            <label id="outputLabel" for="output">R2 Score</label>
+            <input type="text" class="form-control" id="output" name="output" value="{{ mse }}" readonly>
+        </div>
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
